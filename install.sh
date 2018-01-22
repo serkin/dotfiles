@@ -32,6 +32,17 @@ do
             if [[ -z "$rewrite_file" ]]; then
                 rewrite_file="N"
             fi
+
+            if [[ "$rewrite_file" = "Y" ]]; then
+                echo "oK. Look at the diff"
+
+                diff $DOTFILE_PATH$file $local_file
+                read -p "Rewrite $file ? [N]: " rewrite_file
+
+                if [[ -z "$rewrite_file" ]]; then
+                    rewrite_file="N"
+                fi
+            fi
         else
             echo "No changes found."
         fi
