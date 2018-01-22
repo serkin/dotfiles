@@ -17,12 +17,17 @@ for file in $FILES
 do
 
     local_file="$HOME/$file"
+    rewrite_file="N"
+    echo
+    echo "Checking $file"
 
     if [[ ! -f "$local_file" ]]; then
         rewrite_file="Y"
+        echo "File $local_file does not exist"
     else
 
         if [[ $(cat $local_file) != $(cat $DOTFILE_PATH$file) ]]; then
+            echo "Local changes found in this file"
             read -p "Rewrite $file ? [N]: " rewrite_file
 
             if [[ -z "$rewrite_file" ]]; then
@@ -31,6 +36,7 @@ do
         fi
     fi
 
+#echo "rewrite_file = $rewrite_file"
     if [[ "$rewrite_file" = "Y" ]]; then
         rm $local_file 2>/dev/null
         cp $DOTFILE_PATH$file $local_file
