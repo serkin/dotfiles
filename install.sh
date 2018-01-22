@@ -2,16 +2,8 @@
 
 DOTFILE_PATH="$HOME/.dotfiles"
 
-if [ ! -d $DOTFILE_PATH ]; then
-    echo "Installing Dotfiles for the first time"
-    git clone --depth=1 https://github.com/serkin/dotfiles.git $DOTFILE_PATH
-else
-    if [ "$1" = "update" ]; then
-
-      rm -rf $DOTFILE_PATH
-      git clone --depth=1 https://github.com/serkin/dotfiles.git $DOTFILE_PATH
-    fi
-fi
+rm -rf $DOTFILE_PATH 2>/dev/null
+git clone --depth=1 https://github.com/serkin/dotfiles.git $DOTFILE_PATH
 
 
 
