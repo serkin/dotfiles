@@ -1,4 +1,4 @@
-clusters = planets fronts
+clusters = planets fronts fronts_all
 fronts = serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz
 fronts_all = serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz serkin@spb-r1-front1.rabota.space serkin@spb-r1-front2.rabota.space serkin@spb-r1-front3.rabota.space
 planets = serkin@sun.rabota.space  serkin@mars.rabota.space serkin@jupiter.rabota.space serkin@moon.rabota.space serkin@ceres.rabota.space serkin@venus.rabota.space serkin@saturn.rabota.space serkin@pluto.rabota.space serkin@neptune.rabota.space serkin@uranus.rabota.space serkin@mercury.rabota.space serkin@earth.rabota.space
