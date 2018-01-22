@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
-# install.sh update
+DOTFILE_PATH="$HOME/.dotfiles"
 
-if [ ! -d ~/.dotfiles ]; then
+if [ ! -d $DOTFILE_PATH ]; then
     echo "Installing Dotfiles for the first time"
-    git clone --depth=1 https://github.com/serkin/dotfiles.git ~/.dotfiles
-    cd ~/.dotfiles
+    git clone --depth=1 https://github.com/serkin/dotfiles.git $DOTFILE_PATH
 else
     if [ "$1" = "update" ]; then
 
-      rm -rf ~/.dotfiles
-      git clone --depth=1 https://github.com/serkin/dotfiles.git ~/.dotfiles
+      rm -rf $DOTFILE_PATH
+      git clone --depth=1 https://github.com/serkin/dotfiles.git $DOTFILE_PATH
     fi
 fi
 
@@ -19,28 +18,35 @@ fi
 
 cp_files() {
 
-DOTFILE_PATH="~/.dotfiles/"
+DOTFILE_PATH="$HOME/.dotfiles/"
 FILES=".vimrc"
 
 for file in $FILES
 do
 
-    rewrite_file="N"
+    local_file="$HOME/$file"
 
-    if [[ -f "$file" ]] && [[ $(cat $file 2>/dev/null) != $(cat $DOTFILE_PATH$file 2>/dev/null) ]]; then
-        read -p "Rewrite $file ? [Y]: " rewrite_file
+    if [[ ! -f "$local_file" ]]; then
+        rewrite_file="Y"
+    else
 
-        if [[ -z "$rewrite_file" ]]; then
-            rewrite_file="Y"
+        if [[ $(cat $local_file) != $(cat $DOTFILE_PATH$file) ]]; then
+            read -p "Rewrite $file ? [N]: " rewrite_file
+
+            if [[ -z "$rewrite_file" ]]; then
+                rewrite_file="N"
+            fi
         fi
+    fi
 
-        if [[ "$rewrite_file" = "Y" ]]; then
-            rm ~/$file 2>/dev/null
-            cp $DOTFILE_PATH$file ~/$file
-        else
-            echo "Skip $file"
-        fi
-     fi
+    if [[ "$rewrite_file" = "Y" ]]; then
+        rm $local_file 2>/dev/null
+        cp $DOTFILE_PATH$file $local_file
+        echo "Rewriting $file"
+    else
+        echo "Skipping $file"
+    fi
+
 done
 
 }
