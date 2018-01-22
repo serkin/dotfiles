@@ -32,10 +32,11 @@ do
             if [[ -z "$rewrite_file" ]]; then
                 rewrite_file="N"
             fi
+        else
+            echo "No changes found."
         fi
     fi
 
-#echo "rewrite_file = $rewrite_file"
     if [[ "$rewrite_file" = "Y" ]]; then
         rm $local_file 2>/dev/null
         cp $DOTFILE_PATH$file $local_file
