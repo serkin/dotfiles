@@ -1,5 +1,4 @@
-clusters = backs planets old_backs fronts
-fronts = serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz serkin@spb-r1-front1.rabota.space serkin@spb-r1-front2.rabota.space serkin@spb-r1-front3.rabota.space
-backs = serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz serkin@backend22.dmz serkin@spb-r1-back1.rabota.space
+clusters = planets fronts
+fronts = serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz
+fronts_all = serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz serkin@spb-r1-front1.rabota.space serkin@spb-r1-front2.rabota.space serkin@spb-r1-front3.rabota.space
 planets = serkin@sun.rabota.space  serkin@mars.rabota.space serkin@jupiter.rabota.space serkin@moon.rabota.space serkin@ceres.rabota.space serkin@venus.rabota.space serkin@saturn.rabota.space serkin@pluto.rabota.space serkin@neptune.rabota.space serkin@uranus.rabota.space serkin@mercury.rabota.space serkin@earth.rabota.space
-old_backs = serkin@backend-subscribe.dmz serkin@backend2.dmz serkin@rabota-pix.dmz serkin@rabota-support-backend.dmz serkin@backend10.dmz serkin@backend-crm.dmz serkin@zx35.dmz serkin@zx32.dmz serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz serkin@backend22.dmz serkin@spb-r1-back1.rabota.space
