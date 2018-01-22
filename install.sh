@@ -11,7 +11,7 @@ git clone --depth=1 https://github.com/serkin/dotfiles.git $DOTFILE_PATH
 cp_files() {
 
 DOTFILE_PATH="$HOME/.dotfiles/"
-FILES=".vimrc"
+FILES=".vimrc .csshrc"
 
 for file in $FILES
 do
