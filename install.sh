@@ -27,8 +27,7 @@ do
     else
 
         if [[ $(cat $local_file) != $(cat $DOTFILE_PATH$file) ]]; then
-            echo "Local changes found in this file"
-            read -p "Rewrite $file ? [N]: " rewrite_file
+            read -p "Local changes found! Rewrite $file ? [N]: " rewrite_file
 
             if [[ -z "$rewrite_file" ]]; then
                 rewrite_file="N"
