@@ -9,3 +9,5 @@ check folder existence
 # TODO
 - Vagrantfile
 - vim
+- tmux
+- aliases
