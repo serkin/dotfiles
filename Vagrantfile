@@ -37,9 +37,11 @@ end
     centos.vm.provision "shell", inline: <<-SHELL
      yum update -y
      yum install epel-release
-     yum install -y docker-ce net-tools
-#     yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+     yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+     yum install -y docker-ce net-tools wget tmux git mc
      systemctl start docker
+
+     echo "export PATH=\$PATH:/usr/local/go/bin" >> $HOME/.profile
 SHELL
 end
 
