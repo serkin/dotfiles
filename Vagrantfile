@@ -9,12 +9,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
  config.vm.define "ubuntu" do |ubuntu|
     ubuntu.vm.box = "ubuntu/xenial64"
-    ubuntu.vm.hostname = "ubuntu"
+    ubuntu.vm.hostname = "rdw-ubuntu"
     ubuntu.vm.network :forwarded_port, guest: 80, host: 8080
     ubuntu.vm.network :private_network, ip: "192.168.33.10"
-    ubuntu.vm.synced_folder "./skukit", "/vagrant", nfs:true
+    #ubuntu.vm.synced_folder "./skukit", "/vagrant", nfs:true
     ubuntu.vm.provider "virtualbox" do |vb|
-     vb.name = "ubuntu16"
+     vb.name = "rdw-ubuntu16"
      vb.memory = "1024"
     end
     ubuntu.vm.provision "shell", inline: <<-SHELL
@@ -25,13 +25,13 @@ end
 
  config.vm.define "centos" do |centos|
     centos.vm.box = "centos/7"
-    centos.vm.hostname = "centos"
+    centos.vm.hostname = "skukit-centos"
     centos.vm.network :forwarded_port, guest: 80, host: 8011
     centos.vm.network :forwarded_port, guest: 3000, host: 3011
     centos.vm.network :private_network, ip: "192.168.33.11"
     centos.vm.synced_folder "./skukit", "/vagrant", nfs:true
     centos.vm.provider "virtualbox" do |vb|
-     vb.name = "centos7"
+     vb.name = "skukit-centos7"
      vb.memory = "1024"
     end
     centos.vm.provision "shell", inline: <<-SHELL
