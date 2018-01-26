@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  config.vm.define "rdw" do |ubuntu|
     ubuntu.vm.box = "ubuntu/xenial64"
     ubuntu.vm.hostname = "rdw-ubuntu"
-    ubuntu.vm.network :forwarded_port, guest: 80, host: 8080
+    ubuntu.vm.network :forwarded_port, guest: 80, host: 8010
     ubuntu.vm.network :private_network, ip: "192.168.33.10"
     #ubuntu.vm.synced_folder "./rdw", "/vagrant", nfs:true
     ubuntu.vm.provider "virtualbox" do |vb|
@@ -48,7 +48,7 @@ end
  config.vm.define "rhce" do |centos|
     centos.vm.box = "centos/7"
     centos.vm.hostname = "rhce"
-    centos.vm.network :forwarded_port, guest: 80, host: 8888
+    centos.vm.network :forwarded_port, guest: 80, host: 8012
     centos.vm.network :private_network, ip: "192.168.33.12"
     centos.vm.synced_folder "./rhce", "/vagrant", nfs:true
     centos.vm.provider "virtualbox" do |vb|
@@ -57,6 +57,22 @@ end
     end
     centos.vm.provision "shell", inline: <<-SHELL
      yum update -y
+SHELL
+end
+ 
+ config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/xenial64"
+    ubuntu.vm.hostname = "ubuntu"
+    ubuntu.vm.network :forwarded_port, guest: 80, host: 8013
+    ubuntu.vm.network :private_network, ip: "192.168.33.13"
+    #ubuntu.vm.synced_folder "./rdw", "/vagrant", nfs:true
+    ubuntu.vm.provider "virtualbox" do |vb|
+     vb.name = "ubuntu16"
+     vb.memory = "512"
+    end
+    ubuntu.vm.provision "shell", inline: <<-SHELL
+     apt-get update
+     apt-get install -y git mc 
 SHELL
 end
 
