@@ -12,7 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ubuntu.vm.hostname = "rdw-ubuntu"
     ubuntu.vm.network :forwarded_port, guest: 80, host: 8010
     ubuntu.vm.network :private_network, ip: "192.168.33.10"
-    #ubuntu.vm.synced_folder "./rdw", "/vagrant", nfs:true
+    ubuntu.vm.synced_folder "./projects/rabota-2016", "/var/www/2016", nfs:true
+    ubuntu.vm.synced_folder "./projects/rabota", "/var/www/rabota-3.0", nfs:true
+    ubuntu.vm.synced_folder "./projects/rabota-x", "/var/www/x", nfs:true
     ubuntu.vm.provider "virtualbox" do |vb|
      vb.name = "rdw-ubuntu16"
      vb.memory = "1024"
