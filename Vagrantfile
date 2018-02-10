@@ -27,13 +27,13 @@ end
 
  config.vm.define "skukit" do |centos|
     centos.vm.box = "centos/7"
-    centos.vm.hostname = "skukit-centos"
+    centos.vm.hostname = "skukit"
     centos.vm.network :forwarded_port, guest: 80, host: 8011
     centos.vm.network :forwarded_port, guest: 3000, host: 3011
     centos.vm.network :private_network, ip: "192.168.33.11"
     centos.vm.synced_folder "./skukit", "/vagrant", nfs:true
     centos.vm.provider "virtualbox" do |vb|
-     vb.name = "skukit-centos7"
+     vb.name = "skukit"
      vb.memory = "1024"
     end
     centos.vm.provision "shell", inline: <<-SHELL
