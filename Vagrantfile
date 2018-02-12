@@ -62,14 +62,14 @@ end
 SHELL
 end
  
- config.vm.define "ubuntu" do |ubuntu|
+ config.vm.define "pl" do |ubuntu|
     ubuntu.vm.box = "ubuntu/xenial64"
-    ubuntu.vm.hostname = "playground-ubuntu"
+    ubuntu.vm.hostname = "pl-ubuntu"
     ubuntu.vm.network :forwarded_port, guest: 80, host: 8013
     ubuntu.vm.network :private_network, ip: "192.168.33.13"
-    #ubuntu.vm.synced_folder "./rdw", "/vagrant", nfs:true
+    ubuntu.vm.synced_folder "./pl", "/vagrant", nfs:true
     ubuntu.vm.provider "virtualbox" do |vb|
-     vb.name = "playgroud-ubuntu"
+     vb.name = "pl"
      vb.memory = "512"
     end
     ubuntu.vm.provision "shell", inline: <<-SHELL
