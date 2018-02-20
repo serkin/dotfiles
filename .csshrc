@@ -1,5 +1,7 @@
-clusters = planets fronts fronts_all fronts_new
+clusters = planets fronts fronts_all spb fronts_new balancers_spb
+balancers_spb = serkin@spb-r1-balancer1.rabota.space serkin@spb-r1-balancer2.rabota.space
 fronts_new = serkin@spb-r1-front1.rabota.space serkin@spb-r1-front2.rabota.space serkin@spb-r1-front3.rabota.space
 fronts = serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz
 fronts_all = serkin@zx13.dmz serkin@zx43.dmz serkin@zx31.dmz serkin@zx52.dmz serkin@spb-r1-front1.rabota.space serkin@spb-r1-front2.rabota.space serkin@spb-r1-front3.rabota.space
+spb =  serkin@spb-r1-front1.rabota.space serkin@spb-r1-front2.rabota.space serkin@spb-r1-front3.rabota.space
 planets = serkin@sun.rabota.space  serkin@mars.rabota.space serkin@jupiter.rabota.space serkin@moon.rabota.space serkin@ceres.rabota.space serkin@venus.rabota.space serkin@saturn.rabota.space serkin@pluto.rabota.space serkin@neptune.rabota.space serkin@uranus.rabota.space serkin@mercury.rabota.space serkin@earth.rabota.space
